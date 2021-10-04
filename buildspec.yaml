@@ -9,7 +9,7 @@ phases:
       - echo Build started
   post_build:
     commands:
-      - echo Build completed
+      - echo Build just completed 
 artifacts:
   files:
     - '**/*'
