@@ -5,7 +5,7 @@ Description: >
   CodePipeline orchestrates this process.
 Parameters:
   EnvironmentName:
-    Description: Environment name for the application dev/production
+    Description: Environment name for the application dev/production env
     Type: String
     Default: dev
     AllowedValues:
