@@ -23,7 +23,7 @@ Resources:
     Type: AWS::S3::Bucket
     DeletionPolicy: Delete
     Properties:
-      BucketName: "gitcicdcftdeploy345test"
+      BucketName: "gitcicdcftdeploy3456test"
       AccessControl: Private
       VersioningConfiguration:
         Status: Enabled
