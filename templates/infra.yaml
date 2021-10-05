@@ -1,0 +1,42 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: >
+  This template creates a continuous deployment pipeline which pulls
+  code from GitHub, builds via CodeBuild, and deploys via CloudFormation.
+  CodePipeline orchestrates this process.
+Parameters:
+  EnvironmentName:
+    Description: Environment name for the application dev/production
+    Type: String
+    Default: dev
+    AllowedValues:
+    - dev
+    - staging
+    - uat
+    - production
+    ConstraintDescription: Specify either dev or production
+  ApplicationName:
+    Description: Application Name
+    Type: String
+
+Resources:
+  S3BucketBuilds:
+    Type: AWS::S3::Bucket
+    DeletionPolicy: Delete
+    Properties:
+      BucketName: "gitcicdcftdeploy345test"
+      AccessControl: Private
+      VersioningConfiguration:
+        Status: Enabled
+      Tags:
+        - Key: source
+          Value: !Ref ApplicationName
+
+Outputs:
+  BucketURL:
+    Description: This the bucket URL
+    Value: !Join
+      - ''
+      - - 'https://'
+        - !GetAtt
+          - S3BucketBuilds
+          - DomainName
