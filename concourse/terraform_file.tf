@@ -5,7 +5,7 @@ provider "aws" {
 
 
 resource "aws_glue_job" "example_job" {
-  name              = "terraform_pipeline_job"
+  name              = "terraform_test_pipeline_job"
   role_arn          = "arn:aws:iam::298841451579:role/AWSPractice-Developer"
   worker_type         = "G.1X"
   number_of_workers = var.no_of_workers
